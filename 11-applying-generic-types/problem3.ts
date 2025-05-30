@@ -15,10 +15,12 @@
 // 조건부 타입 정의
 type IsArray<T> = T extends any[] ? true : false;
 
-// 조건부 타입을 활용한 함수
-function checkArrayType<T>(value: T): string {
-  // 여기에 작성
-  return Array.isArray(value) ? "This is an array." : "This is not an array.";
+function checkArrayType(value: unknown): string {
+  if (Array.isArray(value)) {
+    return "This is an array.";
+  } else {
+    return "This is not an array.";
+  }
 }
 
 // 테스트 코드
