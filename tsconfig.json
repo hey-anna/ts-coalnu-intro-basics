@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2017",
+    "lib": ["dom", "es2017"],
     "module": "commonjs",
     "strict": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
