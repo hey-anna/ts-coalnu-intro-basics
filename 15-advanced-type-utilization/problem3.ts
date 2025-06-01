@@ -23,11 +23,16 @@ type RequestData<T> = T extends "text"
   : never;
 
 function processRequest<T extends "text" | "json" | "binary">(type: T, data: RequestData<T>): string {
+  let processedData: string;
   if (type === "binary") {
-    return `Processed: ${Array.from(data as Uint8Array).join(",")}`;
+    processedData = Array.from(data as Uint8Array).join(",");
+  } else if (type === "json") {
+    processedData = JSON.stringify(data);
+  } else {
+    processedData = data as string;
   }
 
-  return `Processed: ${data}`;
+  return `Processed: ${processedData}`;
 }
 
 // 테스트 코드
